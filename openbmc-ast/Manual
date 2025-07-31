@@ -1,1 +1,39 @@
+cd openbmc         
+. setup evb-ast2500 /home/ytigli/evb-ast2500
+//sonra ~/evb-ast2500 dizininde:
 bitbake obmc-phosphor-image  
+
+Images: /home/ytigli/evb-ast2500/tmp/deploy/images/evb-ast2500/ ..... .mtd
+
+cd /openbmc/meta-aspeed/recipes-kernel/linux
+.inc -> Yeni Repo Adresi
+.bb -> SRCREV="${AUTOREV}"
+
+cd /openbmc/meta-aspeed/recipes-kernel/linux/linux-aspeed/aspeed-g5
+nano defconfig
+CONFIG_MYDRIVER_V1 = y
+
+
+--------------------- LOCAL ---------------------
+git clone https://github.com/egehan531/mylinux.git
+tar -czf mylinux.tar.gz mylinux/
+sha256sum mylinux.tar.gz
+docker cp mylinux.tar.gz <container_id>:/home/ytigli/openbmc/meta-aspeed/recipes-kernel/linux/files
+
+
+--------------------- GPIOINFO ---------------------
+gpiochip0 - listed 232
+202 -> GPIO 714 
+Chip Base = 512
+Line Offset = 202
+
+
+--------------------- DOCKER ---------------------
+docker commit 
+docker save
+docker load
+
+docker images
+docker ps -a
+docker start -i <container_id>
+exit
