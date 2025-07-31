@@ -1,0 +1,16 @@
+sudo apt update
+sudo apt install gcc-arm-linux-gnueabihf
+
+arm-linux-gnueabihf-gcc -Wall -O2 -o user_test user_test.c
+
+----------------------------------------------------------
+
+cd /openbmc
+. setup evb-ast2500 /evb-ast2500
+bitbake -c devshell obmc-phosphor-image
+arm-openbmc-linux-gnueabi-gcc -Wall -O2 -o /home/ytigli/kod /home/ytigli/kod.c
+exit
+
+----------------------------------------------------------
+gcc for x86!
+----------------------------------------------------------
