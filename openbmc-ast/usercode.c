@@ -10,29 +10,17 @@
 #define GPIO_SET_LOW  _IO(MAGIC_NUM, 1)
 
 int main() {
-    int fd, choice;
-
-    fd = open("/dev/mydevice", O_RDWR);
+    int fd = open("/dev/mydevice", O_RDWR);
     if (fd < 0) {
         perror("Can't open /dev/mydevice");
         return 1;
     }
 
-    printf("Set GPIO %d: [1] HIGH  [2] LOW: ", GPIO_PIN);
-    scanf("%d", &choice);
-
-    if (choice == 1) {
-        if (ioctl(fd, GPIO_SET_HIGH) < 0)
-            perror("HIGH failed");
-        else
-            printf("GPIO %d -> HIGH\n", GPIO_PIN);
-    } else if (choice == 2) {
-        if (ioctl(fd, GPIO_SET_LOW) < 0)
-            perror("LOW failed");
-        else
-            printf("GPIO %d -> LOW\n", GPIO_PIN);
-    } else {
-        printf("Invalid choice\n");
+    for (int i = 0; i < 5; i++) {
+        ioctl(fd, GPIO_SET_HIGH);
+        usleep(200000);
+        ioctl(fd, GPIO_SET_LOW);
+        usleep(200000);
     }
 
     close(fd);
