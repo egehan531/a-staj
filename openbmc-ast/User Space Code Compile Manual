@@ -5,8 +5,8 @@ arm-linux-gnueabihf-gcc -o usercode usercode.c
 
 ----------------------------------------------------------
 
-cd /openbmc
-. setup evb-ast2500 /evb-ast2500
+cd openbmc
+. setup evb-ast2500 /home/ytigli/evb-ast2500
 bitbake -c devshell obmc-phosphor-image
 arm-openbmc-linux-gnueabi-gcc -Wall -O2 -o /home/ytigli/kod /home/ytigli/kod.c
 exit
