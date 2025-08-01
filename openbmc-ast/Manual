@@ -14,6 +14,8 @@ nano defconfig
 CONFIG_MYDRIVER_V1 = y
 
 
+ytigli@0f7cffeb4188:~/openbmc/meta-phosphor/recipes-phosphor/interfaces$ nano bmcweb_git.bb
+
 --------------------- LOCAL ---------------------
 git clone https://github.com/egehan531/mylinux.git
 tar -czf mylinux.tar.gz mylinux/
