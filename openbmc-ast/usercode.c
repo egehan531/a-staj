@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <sys/ioctl.h>
 
-#define GPIO_PIN 714
+#define GPIO_PIN 706
 #define MAGIC_NUM 'G'
 #define GPIO_SET_HIGH _IO(MAGIC_NUM, 0)
 #define GPIO_SET_LOW  _IO(MAGIC_NUM, 1)
