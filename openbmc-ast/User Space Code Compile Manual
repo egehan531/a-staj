@@ -1,7 +1,7 @@
 sudo apt update
 sudo apt install gcc-arm-linux-gnueabihf
 
-arm-linux-gnueabihf-gcc -Wall -O2 -o user_test user_test.c
+arm-linux-gnueabihf-gcc -o usercode usercode.c
 
 ----------------------------------------------------------
 
