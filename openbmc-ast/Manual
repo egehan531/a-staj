@@ -23,10 +23,11 @@ docker cp mylinux.tar.gz <container_id>:/home/ytigli/openbmc/meta-aspeed/recipes
 
 --------------------- GPIOINFO ---------------------
 gpiochip0 - listed 232
-202 -> GPIO 714 
+194 -> GPIO 706
+202 -> IRQ 714 
+
 Chip Base = 512
 Line Offset = 202
-
 
 --------------------- DOCKER ---------------------
 docker commit 
